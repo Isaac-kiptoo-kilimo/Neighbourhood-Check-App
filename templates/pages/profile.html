@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %
+
+<div class="container ">
+    <div class="row">
+       <div class="card my-5 py-5">
+        <h3 class="ms-2">username :{{request.user.username}} 
+        </h3>
+        <p class="text-info ms-2 ">Bio : <span class="mx-3 text-dark">{{request.user.profile.bio}}</span> </p>
+        <div>
+          <div class="row">
+                
+            <div class="col-md-4">
+              {% if user.profile.proc_img %}
+              <img src="{{user.profile.proc_img.url}}" width="80px" height="80px" class=" rounded-circle mx-3" alt="">
+              {% else %}
+              <img src="/static/images/user.webp" width="60px" height="60px" class=" rounded-circle" alt="">
+              {% endif %}
+            </div>
+            
+           
+            <!-- <img src="/static/images/user.webp" width="80px" height="80px" class=" rounded-circle" alt="">
+             -->
+            <div class="col-md-4">
+                <a href="{% url 'editprofile' %}" class="btn btn-outline-info">Edit Profile</a>
+            </div>
+          
+          </div>
+        </div>
+       </div>
+       <div>
+      
+        <!-- {% for user in users %}
+        <div class="col-md-4">
+            
+            {{user.first_name}}
+            {{user.username}}
+        </div>
+        {% endfor %} -->
+    </div>
+</div>
+{% endblock %}
