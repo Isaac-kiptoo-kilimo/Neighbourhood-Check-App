@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container my-4">
+  <div class="card m-4 p-2">
+    <h1>Search Results</h1>
+    <div class="row mt-3">
+      {% for post in object_list %}
+      <div class="col-md-4  p-3 mb-5 bg-body rounded">
+         
+         <div class="card">
+             <!-- <p> {{post.description}}</p> -->
+          <a href="/project/{{post.id}}">
+              <img src="{{post.post_img.url}}"class="p-0 m-0" height="400px" width="100%"  alt="{{post.title}}">
+          </a>
+          <div class="d-flex m-3">
+              <p class="text-uppercase text-info"> {{post.title}}</p>
+              <a href="/post_view/{{post.id}}" class=" text-info border border-info px-4 py-0 text-decoration-none mx-4">View</a>
+          </div>
+          <hr>
+          <div class="d-flex m-2"> 
+          {% if user.profile.proc_img %}
+                  <img src="{{user.profile.proc_img.url}}" width="80px" height="80px" class=" rounded-circle mx-3" alt="">
+                  {% else %}
+                  <img src="/static/images/user.webp" width="60px" height="60px" class=" rounded-circle" alt="">
+                  {% endif %}
+            
+          <p class="ms-2">By:{{post.user.username}}</p> 
+          <p class="mx-3"> {{post.created_at}}</p>
+          </div>
+         </div>
+      </div>
+      {% endfor %}
+  </div>
+  </div>
+
+</div>
+
+{% endblock %}
