@@ -66,6 +66,26 @@ def post(request):
 
 
 @login_required(login_url='login')
+def neighbor(request):
+    if request.method=='POST':
+        photo=request.FILES.get('photo')
+        neighbourhood_name=request.POST.get('neighbourhood_name')
+        location=request.POST.get('location')
+        helpline=request.POST.get('helpline')
+        description=request.POST.get('description')
+        neighbourhoods=NeighbourHood(hood_img=photo,neighbourhood_name=neighbourhood_name,helpline=helpline,location=location,description=description,user=request.user)
+        neighbourhoods.save_neighbourhood()
+        print('new neighbour is ',neighbourhoods)
+        return redirect('hood')
+    return render(request,'pages/neighbor.html')
+
+
+@login_required(login_url='login')
+def hood(request):
+    neighbourhoods=NeighbourHood.objects.all()
+    return render(request,'pages/view_hood.html',{'neighbourhoods':neighbourhoods})
+
+@login_required(login_url='login')
 def view_post(request,post_id):
     post = Post.objects.get(id=post_id)
     cxt={

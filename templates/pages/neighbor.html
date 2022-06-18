@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center   h-100">
+        <div class=" my-4 col-md-7 offset-xl-1 card box-shadow p-4 ">
+          <form action="" method="POST" enctype="multipart/form-data" >
+              {% csrf_token %}
+              <p class="text-center">Create Hood</p>
+              <hr>
+              <div class=" mb-4">
+                <input type="file" id="photo" class="form-control" name="photo" />
+                <label class="form-label" for="customFile"></label>
+                
+            </div>
+           
+            <div class="form-outline mb-4">
+                <input type="text" id="neighbourhood_name" class="form-control form-control-lg" name="neighbourhood_name" />
+                <label class="form-label" for="neighbourhood_name">Neighbourhood Name</label>
+                
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" id="location" class="form-control form-control-lg" name="location" />
+                <label class="form-label" for="location">Location</label>
+                
+            </div>
+            <div class="form-outline mb-4">
+                <input type="number" id="helpline" class="form-control form-control-lg" name="helpline" />
+                <label class="form-label" for="helpline">Helpline</label>
+                
+            </div>
+          
+            <div class="form-outline mb-4">
+                <textarea type="text"  id="description" class="form-control form-control-lg" name="description"  rows="5"></textarea>
+                <label class="form-label" for="description">Description</label>
+                
+                
+            </div>
+        
+    
+            <button type="submit" class="btn text-white btn-info btn-lg btn-block">Upload</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

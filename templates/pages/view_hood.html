@@ -2,12 +2,12 @@
 {% block content %}
 <div class="container">
     <div class="row mt-5">
-        {% for post in posts %}
+        {% for hood in neighbourhoods %}
         <div class="col-md-4 bg-body rounded">
             <div class="card">
                 
-                <img src="{{post.post_img.url}}"class="p-0 m-0"  alt="{{post.title}}">
-                <p>{{post.title}}</p>
+                <img src="{{hood.hood_img.url}}"class="p-0 m-0"  alt="{{post.title}}">
+                <p>{{hood.neighbourhood_name}}</p>
             </div>
         </div>
         {% endfor %}
