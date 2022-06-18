@@ -2,7 +2,7 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
-# from app.decorators import unauthenticated_user
+from app.decorators import unauthenticated_user
 from .models import *
 from django.contrib import messages
 from django.contrib.auth.password_validation import validate_password
@@ -14,17 +14,19 @@ from django.views.generic import TemplateView, ListView
 
 
 # Create your views here.
+@login_required(login_url='login')
 def index(request):
     posts=Post.objects.all()
     return render(request,'pages/index.html',{'posts':posts})
 
 
+@login_required(login_url='login')
 def profile(request):
     user=User.objects.all()
     return render(request,'pages/profile.html',{'users':user})
 
 
-
+@login_required(login_url='login')
 def editProfile(request):
     profiles= Profile.objects.get(user=request.user)
    
@@ -50,6 +52,7 @@ def editProfile(request):
     return render(request,'pages/editprofile.html',context)
 
 
+@login_required(login_url='login')
 def post(request):
     if request.method=='POST':
         photo=request.FILES.get('photo')
@@ -61,6 +64,8 @@ def post(request):
         return redirect('index')
     return render(request,'pages/addpost.html')
 
+
+@login_required(login_url='login')
 def view_post(request,post_id):
     post = Post.objects.get(id=post_id)
     cxt={
@@ -69,6 +74,7 @@ def view_post(request,post_id):
     return render(request,'pages/view_post.html',cxt)
 
 
+@unauthenticated_user
 def register(request):
     if request.method=='POST':
         first_name=request.POST.get('first_name')
@@ -99,6 +105,8 @@ def register(request):
 
     return render(request,'accounts/register.html')
 
+
+@unauthenticated_user
 def loginpage(request):
     if request.method=='POST':
         username=request.POST.get('username')
@@ -117,9 +125,12 @@ def loginpage(request):
     return render(request,'accounts/login.html')
 
 
+@login_required(login_url='login')
 def logoutUser(request):
     logout(request)
-    return redirect('index')
+    return redirect('login')
+
+
 
 class SearchResultsView(ListView):
     model = Post

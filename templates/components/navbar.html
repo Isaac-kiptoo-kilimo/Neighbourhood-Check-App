@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
     <div class="container-fluid">
+      {% if user.is_authenticated %}
       <a class="navbar-brand" href="{% url 'index' %}">Home</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,8 +35,9 @@
         </form>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Logout </a>
+                <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout </a>
               </li>
+              {% else %}
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login </a>
             </li>
@@ -44,5 +47,6 @@
                          
           </ul>
       </div>
+      {% endif %}
     </div>
   </nav>

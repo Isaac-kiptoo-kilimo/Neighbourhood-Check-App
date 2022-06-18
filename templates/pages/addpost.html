@@ -8,19 +8,22 @@
               {% csrf_token %}
               <p class="text-center">Upload a project</p>
               <hr>
-              <div class="form-outline mb-4">
-                <label class="form-label" for="file">Choose a file</label>
-                <input type="file" id="photo" class="form-control form-control-lg" name="photo" />
+              <div class=" mb-4">
+                <input type="file" id="photo" class="form-control" name="photo" />
+                <label class="form-label" for="customFile"></label>
+                
             </div>
            
             <div class="form-outline mb-4">
-                <label class="form-label" for="title">Title</label>
                 <input type="text" id="title" class="form-control form-control-lg" name="title" />
+                <label class="form-label" for="title">Title</label>
+                
             </div>
           
             <div class="form-outline mb-4">
-                <label class="form-label" for="description">Description</label>
                 <textarea type="text"  id="description" class="form-control form-control-lg" name="description"  rows="5"></textarea>
+                <label class="form-label" for="description">Description</label>
+                
                 
             </div>
         
