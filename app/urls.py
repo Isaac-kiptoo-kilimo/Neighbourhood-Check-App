@@ -11,6 +11,7 @@ urlpatterns=[
     path('accounts/login/',views.loginpage,name='login'),
     path('neighbor/',views.neighbor,name='neighbor'),
     path('hood/',views.hood,name='hood'),
+    path("single/<int:neighbourhood_id>/", views.single_hood, name="single"),
     path('accounts/logout/',views.logoutUser,name='logout'),
     path("search/", SearchResultsView.as_view(), name="search_results"),
 ]

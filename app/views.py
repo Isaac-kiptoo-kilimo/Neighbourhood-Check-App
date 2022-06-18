@@ -79,6 +79,12 @@ def neighbor(request):
         return redirect('hood')
     return render(request,'pages/neighbor.html')
 
+def single_hood(request,neighbourhood_id):
+    neighbourhood= NeighbourHood.objects.get(id=neighbourhood_id)
+    cxt={
+        'neighbourhood':neighbourhood
+    }
+    return render(request,'pages/single.html',cxt)
 
 @login_required(login_url='login')
 def hood(request):

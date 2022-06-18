@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-5">
+            <div class="card">
+                <img src="{{neighbourhood.hood_img.url}}" alt="">
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="card">
+                <p>{{neighbourhood.neighbourhood_name}}</p>
+                <p>{{neighbourhood.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
