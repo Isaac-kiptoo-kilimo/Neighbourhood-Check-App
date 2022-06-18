@@ -4,6 +4,8 @@ from cloudinary.models import CloudinaryField
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 # from django.contrib import admin as Admin
 
 # Create your models here.
@@ -16,27 +18,28 @@ class NeighbourHood(models.Model):
     def __str__(self):
         return self.neighbourhood_name
 
-class User(models.Model):
-    first_name=models.CharField(max_length=100,blank=True,null=True)
-    last_name=models.CharField(max_length=100,blank=True,null=True)
-    username=models.CharField(max_length=100,blank=True,null=True)
-    neighborhood_id=models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, related_name="neigborhood",null=True,blank=True)
-    email_user=models.EmailField(max_length=100,blank=True,null=True)
-    password=models.CharField(max_length=100,blank=True,null=True)
+# class User(AbstractUser):
+#     first_name=models.CharField(max_length=100,blank=True,null=True)
+#     last_name=models.CharField(max_length=100,blank=True,null=True)
+#     username=models.CharField(max_length=100,blank=True,null=True)
+#     neighborhood_id=models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, related_name="neigborhood",null=True,blank=True)
+#     email_user=models.EmailField(max_length=100,blank=True,null=True)
+#     password=models.CharField(max_length=100,blank=True,null=True)
     
-    def save_user(self):
-        User.save()
+#     def save_user(self):
+#         self.save()
         
-    def set_password(self,raw_password):
-        self.password =make_password(raw_password)
-        self._password =raw_password
+#     def set_password(self,raw_password):
+#         self.password =make_password(raw_password)
+#         self._password =raw_password
 
-    def __str__(self):
-        return self.username
+#     def __str__(self):
+#         return self.username
 
 class Profile(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='user')
+    user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='profile')
     fullname=models.CharField(max_length=100,blank=True,null=True)
+    username=models.CharField(max_length=100,blank=True,null=True)
     email=models.EmailField(max_length=100,blank=True,null=True)
     proc_img=CloudinaryField('image',blank=True)
     bio=models.TextField(blank=True,null=True)
@@ -86,6 +89,9 @@ class Post(models.Model):
     post_img=CloudinaryField('post_img')
     description=models.TextField(null=False)
     created_at=models.DateTimeField(auto_now_add=True)
+
+    def save_post(self):
+        self.save()
 
     def __str__(self):
         return self.title

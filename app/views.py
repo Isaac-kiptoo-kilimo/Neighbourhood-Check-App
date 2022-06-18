@@ -74,12 +74,12 @@ def register(request):
         first_name=request.POST.get('first_name')
         last_name=request.POST.get('last_name')
         username=request.POST.get('username')
-        email_user=request.POST.get('email_user')
+        email=request.POST.get('email')
         password1=request.POST.get('password1')
         password2=request.POST.get('password2')
 
         if password1==password2:   
-                new_user,create = User.objects.get_or_create(first_name=first_name,last_name=last_name,username=username,email_user=email_user)
+                new_user,create = User.objects.get_or_create(first_name=first_name,last_name=last_name,username=username,email=email)
                 if create:
                     try:
                         validate_password(password1)
@@ -87,7 +87,7 @@ def register(request):
                         new_user.profile.first_name=first_name
                         new_user.profile.last_name=last_name
                         new_user.profile.username=username
-                        new_user.profile.email_user=email_user
+                        new_user.profile.email_user=email
                         new_user.profile.save()
                         new_user.save()
                         return redirect('login')

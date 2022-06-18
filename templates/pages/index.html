@@ -1,4 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Hello world</h2>
+<div class="container">
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-md-4 bg-body rounded">
+            <div class="card">
+                
+                <img src="{{post.post_img.url}}"class="p-0 m-0" height="400px" width="100%"  alt="{{post.title}}">
+                <p>{{post.title}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock %}
