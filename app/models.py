@@ -1,5 +1,3 @@
-
-from ast import Str
 from django.db import models
 from cloudinary.models import CloudinaryField
 from django.dispatch import receiver
@@ -91,6 +89,9 @@ class Business(models.Model):
     business_logo=CloudinaryField('image',blank=True)
     business_email=models.EmailField(max_length=100,blank=True,null=True)
     contact=models.IntegerField(null=True,blank=True)
+
+    def save_business(self):
+        self.save()
 
     def __str__(self):
         return str(self.business_name)
