@@ -80,10 +80,11 @@ def neighbor(request):
     return render(request,'pages/neighbor.html')
 
 def single_hood(request,neighbourhood_id):
-    business=Business.objects.all()
+    businesses=Business.objects.all()
     neighbourhood= NeighbourHood.objects.get(id=neighbourhood_id)
     cxt={
-        'neighbourhood':neighbourhood
+        'neighbourhood':neighbourhood,
+        'businesses':businesses
     }
     return render(request,'pages/single.html',cxt)
 
@@ -187,12 +188,12 @@ def logoutUser(request):
 
 
 class SearchResultsView(ListView):
-    model = Post
+    model = Business
     template_name = "pages/search.html"
 
     def get_queryset(self):  # new
         query = self.request.GET.get("query")
-        object_list = Post.objects.filter(
-            Q(title__icontains=query)
+        object_list = Business.objects.filter(
+            Q(business_name__icontains=query)
         )
         return object_list

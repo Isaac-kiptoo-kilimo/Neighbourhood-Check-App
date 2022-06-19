@@ -4,14 +4,20 @@
     <div class="row mt-5">
         {% for post in posts %}
         <div class="col-md-4 bg-body rounded">
-            <div class="card">
-                
-                <img src="{{post.post_img.url}}"class="p-0 m-0"  alt="{{post.title}}">
-                <p>{{post.title}}</p>
-            </div>
+            <div class="card shadow">
+                <img src="{{post.post_img.url}}" class="card-img-top" width="100%" height="300px" alt="Fissure in Sandstone"/>
+                <div class="card-body">
+                  <h5 class="card-title">{{post.title}}</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#!" class="btn btn-primary">Button</a>
+                </div>
+              </div>
+              
+            
         </div>
         {% endfor %}
     </div>
+    
 </div>
 
 {% endblock %}
