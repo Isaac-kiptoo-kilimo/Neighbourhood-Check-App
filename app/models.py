@@ -88,7 +88,9 @@ class Business(models.Model):
     business_name=models.EmailField(max_length=100,blank=True,null=True)
     user=models.ForeignKey(User, on_delete=models.CASCADE, related_name="users",null=True,blank=True)
     neighbourhood_id=models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, related_name="neighbourhoods",null=True,blank=True)
+    business_logo=CloudinaryField('image',blank=True)
     business_email=models.EmailField(max_length=100,blank=True,null=True)
+    contact=models.IntegerField(null=True,blank=True)
 
     def __str__(self):
         return str(self.business_name)

@@ -113,6 +113,20 @@ def leave_hood(request,id):
     request.user.profile.save()
     return redirect('hood')
 
+
+@login_required(login_url='login')
+def addbusiness(request):
+    if request.method=='POST':
+        photo=request.FILES.get('photo')
+        business_name=request.POST.get('business_name')
+        business_email=request.POST.get('business_email')
+        contact=request.POST.get('contact')
+        business=Business(business_logo=photo,business_name=business_name,business_email=business_email,contact=contact,user=request.user)
+        business.save_business()
+        print('new business is ',business)
+        return redirect('index')
+    return render(request,'pages/addbusiness.html')
+
 @unauthenticated_user
 def register(request):
     if request.method=='POST':

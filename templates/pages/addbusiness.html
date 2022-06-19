@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center   h-100">
+        <div class=" my-4 col-md-7 offset-xl-1 card box-shadow p-4 ">
+          <form action="" method="POST" enctype="multipart/form-data" >
+              {% csrf_token %}
+              <p class="text-center">Post Business</p>
+              <hr>
+              <div class="form-outline mb-4">
+                <input type="text" id="business_name" class="form-control form-control-lg" name="business_name" />
+                <label class="form-label" for="business_name">Business Name</label>
+                
+            </div>
+              <div class=" mb-4">
+                <input type="file" id="photo" class="form-control" name="photo" />
+                <label class="form-label" for="customFile"></label>
+                
+            </div>
+            <div class="form-outline mb-4">
+                <input type="email" id="business_email" class="form-control form-control-lg" name="business_email" />
+                <label class="form-label" for="business_email">Business Emails</label>
+                
+            </div>
+            <div class="form-outline mb-4">
+                <input type="number" id="contact" class="form-control form-control-lg" name="contact" />
+                <label class="form-label" for="contact">Business Contacts</label>
+                
+            </div>
+          
+            
+            <button type="submit" class="btn text-white btn-info btn-lg btn-block">Upload</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
