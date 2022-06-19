@@ -18,7 +18,7 @@
         </ul>
         <form class="d-flex me-auto" action="{% url 'search_results' %}" method="GET">
           <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="search">Search</button>
+          <button class="btn btn-outline-primary" type="search">Search</button>
         </form>
         <ul class="navbar-nav  mb-2 mb-lg-0 me-5">
           <li class="nav-item me-4">
@@ -34,12 +34,8 @@
                 <a class="nav-link active btn btn-sucess" aria-current="page" href="{% url 'logout' %}">Logout </a>
               </li>
               {% else %}
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'register' %}">Sign up</a>
-            </li>
+              <a class="nav-link active btn btn-sucess" aria-current="page" href="{% url 'login' %}">Login </a>
+              <a class="nav-link btn btn-sucess" href="{% url 'register' %}">Sign up</a>
                          
           </ul>
       </div>
