@@ -7,7 +7,7 @@
        <div class="card my-5 py-5">
         <h3 class="ms-2">Username :{{request.user.username}} 
         </h3>
-        <p class="text-info ms-2 ">Bio : <span class="mx-3 text-dark">{{request.user.profile.bio}}</span> </p>
+        <p class="text-primary ms-2 ">Bio : <span class="mx-3 text-dark">{{request.user.profile.bio}}</span> </p>
         <div>
           <div class="row">
                 
@@ -20,10 +20,10 @@
             </div>
             
             <div class="col-md-4">
-                <a href="{% url 'editprofile' %}" class="btn btn-outline-info">Edit Profile</a>
+                <a href="{% url 'editprofile' %}" class="btn btn-outline-primary">Edit Profile</a>
             </div>
             <div class="col-md-4">
-              <a href="{% url 'neighbor' %}" class="btn btn-outline-info">Create Hood</a>
+              <a href="{% url 'neighbor' %}" class="btn btn-outline-primary">Create Hood</a>
           </div>
           
           </div>
