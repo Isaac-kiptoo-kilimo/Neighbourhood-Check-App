@@ -22,6 +22,17 @@ class NeighbourHood(models.Model):
     def save_neighbourhood(self):
         self.save()
 
+    def update_neighbourhood(self):
+        self.save()
+
+    def delete_neighbourhood(self):
+        self.delete()
+        
+    @classmethod
+    def find_neighbourhood(cls,neighbourhood_id):
+        hood = cls.objects.filter(neighbourhood_id=neighbourhood_id)
+        return hood
+
     def __str__(self):
         return str(self.neighbourhood_name)
 
@@ -60,8 +71,6 @@ class Profile(models.Model):
     def delete_profile(self):
         self.delete()
 
-  
-
     def update_profile(self,id,profile):
         updated_profile=Profile.objects.filter(id=id).update(profile)
         return updated_profile
@@ -82,6 +91,8 @@ class Profile(models.Model):
         Profile.objects.get_or_create(user=instance)
         instance.profile.save()
 
+
+
 class Business(models.Model):
     business_name=models.CharField(max_length=100,blank=True,null=True)
     user=models.ForeignKey(User, on_delete=models.CASCADE, related_name="users",null=True,blank=True)
@@ -93,13 +104,26 @@ class Business(models.Model):
     def save_business(self):
         self.save()
 
-    # @classmethod
-    # def get_business(cls,id):
-        
-    #     return business
+    
+    def update_business(self):
+        self.save()
 
+    def delete_business(self):
+        self.delete()
+
+    @classmethod
+    def search_by_name(cls, search_term):
+        business = cls.objects.filter(business_name__icontains=search_term)
+        return business
+
+    @classmethod
+    def get_business(cls,id):
+        business = Business.objects.filter(neighbourhood__pk = id)
+
+        return business
     def __str__(self):
         return str(self.business_name)
+
 
 class Post(models.Model):
     title=models.CharField(max_length=100,null=True,blank=True)
@@ -110,6 +134,9 @@ class Post(models.Model):
 
     def save_post(self):
         self.save()
+
+    def delete_post(self):
+        self.delete()
 
     def __str__(self):
         return str(self.title)
