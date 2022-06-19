@@ -11,6 +11,7 @@ cloudinary = "*"
 django-heroku = "*"
 dj-database-url = "*"
 django-crispy-forms = "*"
+whitenoise = "*"
 
 [dev-packages]
 
