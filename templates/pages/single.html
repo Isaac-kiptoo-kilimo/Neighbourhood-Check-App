@@ -15,12 +15,15 @@
                 <a href="{% url 'addbusiness' %}" class="btn btn-info">Create Business</a>
                </div>
             </div>
-            {% for business in businesses  %}
+           
+            {% for business in businesses %}
             <div class="card">
+                <p>{{neighbourhood.business.business_name}}</p>
               <p>{{business.business_name}}</p>
               <img src="{{business.business_logo.url}}" alt="">
             </div>
             {% endfor %}
+        
         </div>
     </div>
 </div>

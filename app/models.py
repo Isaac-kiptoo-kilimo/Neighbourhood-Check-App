@@ -93,6 +93,11 @@ class Business(models.Model):
     def save_business(self):
         self.save()
 
+    # @classmethod
+    # def get_business(cls,id):
+        
+    #     return business
+
     def __str__(self):
         return str(self.business_name)
 
