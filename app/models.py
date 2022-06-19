@@ -135,6 +135,10 @@ class Post(models.Model):
     def save_post(self):
         self.save()
 
+    def update_post(self,id,post):
+        updated_post=Post.objects.filter(id=id).update(post)
+        return updated_post
+
     def delete_post(self):
         self.delete()
 
