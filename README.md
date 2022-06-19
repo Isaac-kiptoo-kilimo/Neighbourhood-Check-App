@@ -5,16 +5,17 @@
 # Isaac Kiptoo Kilimo.
 
 
-
 ## Description
-This is a web application written in Django. It is a clone of AWWARDS application where users can view different posts,rate,and search other posts. The administrator is in charge of populating the database.
+This is a web application written in Django. This is a Neigbourhood Check app application where users can view different posts,neighbourhood,and search other business around neighbourhood. The administrator is in charge of populating the database.
 
 ## User Story
-1. View different posts that interest them.
-2. Click a single image to expand it and view the details of that image.
-3. Search for different projects.
-4. Rating projects from different users.
-
+1. Sign in with the application to start using.
+2. Set up a profile about me and a general location and my neighborhood name.
+3. Find a list of different businesses in my neighborhood.
+4. Find Contact Information for the health department and Police authorities near my neighborhood.
+5. Create Posts that will be visible to everyone in my neighborhood.
+6. Change My neighborhood when I decide to move out.
+7. Only view details of a single neighborhood.
 
 
 ## Behaviour Driven Development (BDD)
@@ -22,7 +23,7 @@ This is a web application written in Django. It is a clone of AWWARDS applicatio
 
 |Behaviour 	           |    Input 	                 |       Output          |
 |----------------------------------------------|:-----------------------------------:|-----------------------------:|       
-| A new user must sign up to be able to post and view other people posts and images will be displayed on user timeline  | 
+| A new user must sign up to be able to post,join neighbourhood,post a business and view other people posts and images will be displayed on user timeline  | 
 
 
 1. Login
@@ -43,7 +44,7 @@ This is a web application written in Django. It is a clone of AWWARDS applicatio
 |----------------------------------------------|:-----------------------------------:|-----------------------------:|       
 | upon signing up ang logging in successfully the user will be able to post and view other people posts and images will be displayed on user timeline  and he can be able to logout after navigating to the dropdown | 
 
-2. Search by post title 
+2. Search by business by business name 
 
 |Behaviour 	           |    Input 	                 |       Output          |
 |----------------------------------------------|:-----------------------------------:|-----------------------------:|       
@@ -56,11 +57,11 @@ This is a web application written in Django. It is a clone of AWWARDS applicatio
 |----------------------------------------------|:-----------------------------------:|-----------------------------:|       
 | Click on Admin on navigation bar | Username, Password| User is redirected to the admin page where they can manage the database  |  
 
-4. View post
+4. View hood/neighbourhood
 
 |Behaviour 	           |    Input 	                 |       Output          |
 |----------------------------------------------|:-----------------------------------:|-----------------------------:|       
-| Click on the copy icon on the image modal that appears after clicking on the image | copy link| The image link is copied to clipboard  |  
+| Click on the view hood on the navbar to view the hoods available and choose the one to join,the user can change the hood by leaving one and joining the one he/she wants 
 
 
 ## Setup/Installation Requirements
