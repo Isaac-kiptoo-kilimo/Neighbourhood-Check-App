@@ -1,5 +1,5 @@
 
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from app.decorators import unauthenticated_user
@@ -99,6 +99,19 @@ def view_post(request,post_id):
     }
     return render(request,'pages/view_post.html',cxt)
 
+
+def join_hood(request,id):
+    neighbourhood=NeighbourHood.objects.get(id=id)
+    user=request.user
+    user.profile.neighbourhood=neighbourhood
+    user.profile.save()
+    return redirect('hood')
+
+def leave_hood(request,id):
+    hood=get_object_or_404(NeighbourHood,id=id)
+    request.user.profile.neighbourhood=None
+    request.user.profile.save()
+    return redirect('hood')
 
 @unauthenticated_user
 def register(request):

@@ -1,4 +1,5 @@
 
+from ast import Str
 from django.db import models
 from cloudinary.models import CloudinaryField
 from django.dispatch import receiver
@@ -14,17 +15,17 @@ class NeighbourHood(models.Model):
     location=models.CharField(max_length=200,blank=True,null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="neighbourhoods",null=True,blank=True)
     hood_img=CloudinaryField('image',blank=True)
-    Occupants_Count=models.IntegerField(blank=True,null=True)
+    Occupants_Count=models.IntegerField(default=0,blank=True,null=True)
+    admin=models.ForeignKey('Profile', on_delete=models.CASCADE, related_name="neigborhood",null=True,blank=True)
     helpline=models.CharField(max_length=200,blank=True,null=True)
     description=models.TextField(null=False,blank=True)
 
-    # admin=models.ForeignKey(Admin, on_delete=models.CASCADE, related_name="neigborhood",null=True,blank=True)
 
     def save_neighbourhood(self):
         self.save()
 
     def __str__(self):
-        return self.neighbourhood_name
+        return str(self.neighbourhood_name)
 
 # class User(AbstractUser):
 #     first_name=models.CharField(max_length=100,blank=True,null=True)
@@ -48,6 +49,7 @@ class Profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='profile')
     fullname=models.CharField(max_length=100,blank=True,null=True)
     username=models.CharField(max_length=100,blank=True,null=True)
+    neighbourhood=models.ForeignKey(NeighbourHood,on_delete=models.SET_NULL, null=True, related_name='members', blank=True)
     email=models.EmailField(max_length=100,blank=True,null=True)
     proc_img=CloudinaryField('image',blank=True)
     bio=models.TextField(blank=True,null=True)
@@ -67,7 +69,7 @@ class Profile(models.Model):
         return updated_profile
 
     def __str__(self):
-        return self.fullname
+        return str(self.fullname)
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
@@ -89,7 +91,7 @@ class Business(models.Model):
     business_email=models.EmailField(max_length=100,blank=True,null=True)
 
     def __str__(self):
-        return self.business_name
+        return str(self.business_name)
 
 class Post(models.Model):
     title=models.CharField(max_length=100,null=True,blank=True)
@@ -102,4 +104,4 @@ class Post(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return str(self.title)

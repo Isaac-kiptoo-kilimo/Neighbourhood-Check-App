@@ -14,4 +14,6 @@ urlpatterns=[
     path("single/<int:neighbourhood_id>/", views.single_hood, name="single"),
     path('accounts/logout/',views.logoutUser,name='logout'),
     path("search/", SearchResultsView.as_view(), name="search_results"),
+    path("join/<int:id>/", views.join_hood, name="join"),
+    path("leave/<int:id>/", views.leave_hood, name="leave"),
 ]
