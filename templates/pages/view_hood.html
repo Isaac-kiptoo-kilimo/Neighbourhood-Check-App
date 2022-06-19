@@ -6,7 +6,7 @@
         <div class="col-md-4 bg-body rounded">
             <div class="card my-3 ">
                 
-                <img src="{{hood.hood_img.url}}"class="p-0 m-0" width="100%" height="300px" alt="{{post.title}}">
+                <img src="{{hood.hood_img.url}}"class="p-0 m-0" width="100%" height="300px" style="object-fit:cover;" alt="{{post.title}}">
                 <div class="p-3">
                     <a href="{% url 'single' hood.id %}">{{hood.location}}</a>
                     <p>{{hood.neighbourhood_name}}</p>

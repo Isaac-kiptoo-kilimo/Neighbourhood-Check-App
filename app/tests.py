@@ -8,7 +8,7 @@ class PostTestClass(TestCase):
         self.profile = Profile('8',first_name='isaac',last_name='kiptoo',proc_img='isaac.png',bio='am i a tm',email='isaac@gmail',contacts='0712345678')
         self.profile.save_profile()
 
-        self.rate = Rate(scores='10')
+        self.business = Business(scores='10')
         self.rate.save_rate()
 
         self.initial_test= Post(title='creativity',user='isaac',url='',technologies = 'django/python',post_img='isaac.png',  description='the image is in good condition',created_at='25-04-2022',profile=self.profile,rate=self.rate)
@@ -48,7 +48,7 @@ class PostTestClass(TestCase):
         Profile.objects.all().delete()
         Rate.objects.all().delete()
 
-class RateTestClass(TestCase):
+class NeighbourHoodTestClass(TestCase):
 
     # Set up method
     def setUp(self):
@@ -91,4 +91,24 @@ class ProfileTestClass(TestCase):
         profiless = Profile.objects.all()
         self.assertTrue(len(profiless) == 0)
 
-    
+
+class BusinessTestClass(TestCase):
+
+    # Set up method
+    def setUp(self):
+        self.profile = Profile('3',first_name='isaac',last_name='kiptoo',proc_img='isaac.png',bio='am i a tm',email='isaac@gmail',contacts='0712345678')
+        self.profile.save_profile()
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.profile, Profile))
+
+    def test_save_profile(self):
+        self.profile.save_profile()
+        profiles = Profile.objects.all()
+        self.assertTrue(len(profiles) > 0)
+
+    def test_delete_profile(self):
+        self.profile.delete_profile()
+        profiless = Profile.objects.all()
+        self.assertTrue(len(profiless) == 0)
+
