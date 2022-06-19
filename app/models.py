@@ -116,11 +116,11 @@ class Business(models.Model):
         business = cls.objects.filter(business_name__icontains=search_term)
         return business
 
-    @classmethod
-    def get_business(cls,id):
-        business = Business.objects.filter(neighbourhood__pk = id)
+    # @classmethod
+    # def get_business(cls,id):
+    #     business = Business.objects.filter(id)
+    #     return business
 
-        return business
     def __str__(self):
         return str(self.business_name)
 

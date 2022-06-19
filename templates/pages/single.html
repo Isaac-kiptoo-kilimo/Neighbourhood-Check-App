@@ -12,7 +12,7 @@
                 <h3>{{neighbourhood.neighbourhood_name}}</h3>
                 <p>{{neighbourhood.description}}</p>
                <div>
-                <a href="{% url 'addbusiness' %}" class="btn btn-primary">Create Business</a>
+                <a href="{% url 'addbusiness' neighbourhood.id %}" class="btn btn-primary">Create Business</a>
                </div>
             </div>            
         
@@ -22,6 +22,9 @@
     <h2 class="text-center my-3">Business List Within The Neighbourhood</h2>
     <hr>
     <div class="row">
+        {% for bizna in biznas %}
+        {{bizna.business_name}}
+        {% endfor %}
         {% for business in businesses %}
         <div class="col-md-4 my-5">
             <div class="card">

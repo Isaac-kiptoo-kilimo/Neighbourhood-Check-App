@@ -80,7 +80,7 @@ class ProfileTestClass(TestCase):
 
     # Set up method
     def setUp(self):
-        self.profile = Profile('3',first_name='isaac',last_name='kiptoo',proc_img='isaac.png',bio='am i a tm',email='isaac@gmail',contacts='0712345678')
+        self.profile = Profile('8',fullname='isaac kiptoo',username='kiptoo',neighbourhood='Elgon view',email='mugera@gmail.com',proc_img='isaac.png',bio='am i a tm',contacts='0712345678',locations='Eldoret')
         self.profile.save_profile()
 
     def test_instance(self):

@@ -81,10 +81,12 @@ def neighbor(request):
 
 def single_hood(request,neighbourhood_id):
     businesses=Business.objects.all()
+    biznas = Business.objects.filter(id=neighbourhood_id)
     neighbourhood= NeighbourHood.objects.get(id=neighbourhood_id)
     cxt={
         'neighbourhood':neighbourhood,
-        'businesses':businesses
+        'businesses':businesses,
+        'biznas':biznas
     }
     return render(request,'pages/single.html',cxt)
 
@@ -117,7 +119,8 @@ def leave_hood(request,id):
 
 
 @login_required(login_url='login')
-def addbusiness(request):
+def addbusiness(request,neighbourhood_id):
+    business=Business.objects.filter(id=neighbourhood_id)
     if request.method=='POST':
         photo=request.FILES.get('photo')
         business_name=request.POST.get('business_name')
@@ -126,8 +129,8 @@ def addbusiness(request):
         business=Business(business_logo=photo,business_name=business_name,business_email=business_email,contact=contact,user=request.user)
         business.save_business()
         print('new business is ',business)
-        return redirect('index')
-    return render(request,'pages/addbusiness.html')
+        return redirect('single',neighbourhood_id)
+    return render(request,'pages/addbusiness.html',{'business':business})
 
 @unauthenticated_user
 def register(request):
