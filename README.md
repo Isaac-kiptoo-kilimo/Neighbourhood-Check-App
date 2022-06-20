@@ -118,12 +118,10 @@ Copyright © 2022
 ### Homepage
 ![Neighbourhood](/static/images/landing.png)
 
-### Login 
+### Register 
 ![Neighbourhood](/static/images/signup.png)
 
 ### Login 
 ![Neighbourhood](/static/images/login.png)
 
 
-### Login 
-![Neighbourhood](/static/images/login.png)
