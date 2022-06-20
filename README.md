@@ -116,7 +116,14 @@ Copyright © 2022
 # project layout
 
 ### Homepage
-![Awwardsapp](/static/images/home.png)
+![Neighbourhood](/static/images/landing.png)
 
-### Admin 
-![Awwardsapp](/static/images/login.png)
+### Login 
+![Neighbourhood](/static/images/signup.png)
+
+### Login 
+![Neighbourhood](/static/images/login.png)
+
+
+### Login 
+![Neighbourhood](/static/images/login.png)
