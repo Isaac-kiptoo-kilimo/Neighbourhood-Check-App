@@ -8,9 +8,13 @@
                 
                 <img src="{{hood.hood_img.url}}"class="p-0 m-0" width="100%" height="300px" style="object-fit:cover;" alt="{{post.title}}">
                 <div class="p-3">
-                    <a href="{% url 'single' hood.id %}">{{hood.location}}</a>
-                    <p>{{hood.neighbourhood_name}}</p>
-                    <p class="residents">{{hood.members.count}} Member{{hood.members.count|pluralize}}</p>
+                    <h5><a href="{% url 'single' hood.id %}">{{hood.neighbourhood_name}}</a></h5>
+                    <p>{{hood.location}}</p>
+                    
+                    <p>Occupants In Hood: {{hood.Occupants_Count}}</p>
+                    <p>Health Helpline: {{hood.health_helpline}}</p>
+                    <p>Police Helpline: {{hood.ploice_helpline}}</p>
+                    <p class="residents"> <span class="fw-bold">{{hood.members.count}}</span> Member{{hood.members.count|pluralize}}</p>
                     {% if request.user.profile.neighbourhood == hood %}
                     <a href="{% url 'leave' hood.id %}" class="btn btn-sm btn-danger mt-4">Leave Hood</a>
                     {% elif not request.user.profile.neighbourhood %}

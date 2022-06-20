@@ -7,9 +7,11 @@
             <div class="card shadow">
                 <img src="{{post.post_img.url}}" class="card-img-top" width="100%" height="300px" style="object-fit:cover;" alt="Fissure in Sandstone"/>
                 <div class="card-body">
-                  <h5 class="card-title">{{post.title}}</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#!" class="btn btn-primary">Button</a>
+                  <h4 class="card-title">{{post.title}}</h4>
+                  <p class="card-text">{{post.description}}</p>
+                  <p class="card-text">{{post.created_at}}</p>
+                  <h3 class="card-text text-dark">Posted by: <span class="text-capitalize">{{post.user}}</span></h3>
+                  
                 </div>
               </div>
               

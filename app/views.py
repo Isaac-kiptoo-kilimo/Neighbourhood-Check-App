@@ -71,16 +71,18 @@ def neighbor(request):
         photo=request.FILES.get('photo')
         neighbourhood_name=request.POST.get('neighbourhood_name')
         location=request.POST.get('location')
-        helpline=request.POST.get('helpline')
+        Occupants_Count=request.POST.get('Occupants_Count')
+        health_helpline=request.POST.get('health_helpline')
+        police_helpline=request.POST.get('police_helpline')
         description=request.POST.get('description')
-        neighbourhoods=NeighbourHood(hood_img=photo,neighbourhood_name=neighbourhood_name,helpline=helpline,location=location,description=description,user=request.user)
+        neighbourhoods=NeighbourHood(hood_img=photo,neighbourhood_name=neighbourhood_name,health_helpline=health_helpline,police_helpline=police_helpline,Occupants_Count=Occupants_Count,location=location,description=description,user=request.user)
         neighbourhoods.save_neighbourhood()
         print('new neighbour is ',neighbourhoods)
         return redirect('hood')
     return render(request,'pages/neighbor.html')
 
 def single_hood(request,neighbourhood_id):
-    businesses=Business.objects.all()
+    businesses = Business.get_hood_business(neighbourhood_id)
     biznas = Business.objects.filter(id=neighbourhood_id)
     neighbourhood= NeighbourHood.objects.get(id=neighbourhood_id)
     cxt={
@@ -120,17 +122,17 @@ def leave_hood(request,id):
 
 @login_required(login_url='login')
 def addbusiness(request,neighbourhood_id):
-    business=Business.objects.filter(id=neighbourhood_id)
+    # business=Business.objects.filter(id=neighbourhood_id)
     if request.method=='POST':
         photo=request.FILES.get('photo')
         business_name=request.POST.get('business_name')
         business_email=request.POST.get('business_email')
         contact=request.POST.get('contact')
-        business=Business(business_logo=photo,business_name=business_name,business_email=business_email,contact=contact,user=request.user)
+        business=Business(business_logo=photo,business_name=business_name,business_email=business_email,contact=contact,user=request.user,neighbourhood_id=NeighbourHood.objects.get(id=neighbourhood_id))
         business.save_business()
         print('new business is ',business)
         return redirect('single',neighbourhood_id)
-    return render(request,'pages/addbusiness.html',{'business':business})
+    return render(request,'pages/addbusiness.html')
 
 @unauthenticated_user
 def register(request):

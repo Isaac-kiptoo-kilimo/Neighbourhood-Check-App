@@ -15,7 +15,8 @@ class NeighbourHood(models.Model):
     hood_img=CloudinaryField('image',blank=True)
     Occupants_Count=models.IntegerField(default=0,blank=True,null=True)
     admin=models.ForeignKey('Profile', on_delete=models.CASCADE, related_name="neigborhood",null=True,blank=True)
-    helpline=models.CharField(max_length=200,blank=True,null=True)
+    health_helpline=models.CharField(max_length=200,blank=True,null=True)
+    police_helpline=models.CharField(max_length=200,blank=True,null=True)
     description=models.TextField(null=False,blank=True)
 
 
@@ -116,10 +117,10 @@ class Business(models.Model):
         business = cls.objects.filter(business_name__icontains=search_term)
         return business
 
-    # @classmethod
-    # def get_business(cls,id):
-    #     business = Business.objects.filter(id)
-    #     return business
+    @classmethod
+    def get_hood_business(cls,id):
+        business = Business.objects.filter(neighbourhood_id__pk = id)
+        return business
 
     def __str__(self):
         return str(self.business_name)
