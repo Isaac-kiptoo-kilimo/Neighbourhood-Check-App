@@ -23,41 +23,47 @@ This is a web application written in Django. This is a Neigbourhood Check app ap
 
 |Behaviour 	           |    Input 	                 |       Output          |
 |----------------------------------------------|:-----------------------------------:|-----------------------------:|       
-| A new user must sign up to be able to post,join neighbourhood,post a business and view other people posts and images will be displayed on user timeline  | 
+| A new user must sign up to be able to post,join neighbourhood,post a business and view other people posts and images will be displayed on user timeline  | firstname,email,Username, Password1,password| User is redirected to the login page where they can login |   
 
 
-1. Login
-
-|Behaviour 	           |    Input 	                 |       Output          |
-|----------------------------------------------|:-----------------------------------:|-----------------------------:|       
-| upon signing up successfully the user will be able to be redirected to home page where he/she be able to post and view other people posts and images | 
-
-1. update profile
+2. Login
 
 |Behaviour 	           |    Input 	                 |       Output          |
 |----------------------------------------------|:-----------------------------------:|-----------------------------:|       
-| upon signing up successfully the user will be able to be redirected to home page where he/she be able to post and view other people posts and images,the user can also update his profile | 
+| upon signing up successfully the user will be able to be redirected to home page where he/she be able to post and view other people posts and images | Username, Password| User is redirected to the index page where they can manage post and update their profile  |  
 
-1. logout
+3. update profile
+
+|Behaviour 	           |    Input 	                 |       Output          |
+|----------------------------------------------|:-----------------------------------:|-----------------------------:|       
+| upon signing up successfully the user will be able to be redirected to home page where he/she be able to post and view other people posts and images,the user can also update his profile |bio,email,username,fullname, Password| User is redirected to the profile page where they can view their profile and create hood  |  
+
+4. logout
 
 |Behaviour 	           |    Input 	                 |       Output          |
 |----------------------------------------------|:-----------------------------------:|-----------------------------:|       
 | upon signing up ang logging in successfully the user will be able to post and view other people posts and images will be displayed on user timeline  and he can be able to logout after navigating to the dropdown | 
 
-2. Search by business by business name 
+5. Search by business by business name 
 
 |Behaviour 	           |    Input 	                 |       Output          |
 |----------------------------------------------|:-----------------------------------:|-----------------------------:|       
 | Enter a search name on the search form   | searchTerm| names that belong to that category are displayed  | 
 
 
-3. Admin View
+6. Admin View
 
 |Behaviour 	           |    Input 	                 |       Output          |
 |----------------------------------------------|:-----------------------------------:|-----------------------------:|       
 | Click on Admin on navigation bar | Username, Password| User is redirected to the admin page where they can manage the database  |  
 
-4. View hood/neighbourhood
+7. Create hood/neighbourhood
+
+|Behaviour 	           |    Input 	                 |       Output          |
+|----------------------------------------------|:-----------------------------------:|-----------------------------:|       
+| On profile Click on the create hood  and upload form will available.| hood image, name,location| User is redirected to the viewhood,where he can see the hood created |  
+
+8. View hood/neighbourhood
 
 |Behaviour 	           |    Input 	                 |       Output          |
 |----------------------------------------------|:-----------------------------------:|-----------------------------:|       
