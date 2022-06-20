@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-5">
             <div class="card p-4 ">
-                <h3>{{neighbourhood.neighbourhood_name}}</h3>
+                <h3>{{neighbourhood.neighbourhood_name}} Neighbourhood</h3>
                 <p>{{neighbourhood.description}}</p>
                <div>
                 <a href="{% url 'addbusiness' neighbourhood.id %}" class="btn btn-primary">Create Business</a>
@@ -19,11 +19,11 @@
         </div>
     </div>
     <hr>
-    <h2 class="text-center my-3">Business List Within The Neighbourhood</h2>
+    <h2 class="text-center my-3">Business List Within The {{neighbourhood.neighbourhood_name}} Neighbourhood</h2>
     <hr>
     <div class="row">
         
-        {{neighbourhood.biznas.business_name}}
+        
         
         {% for business in businesses %}
         <div class="col-md-4 my-5">
@@ -33,7 +33,10 @@
                 <img src="{{business.business_logo.url}}" alt="" width="100%" style="object-fit:cover;" height="300px">
                 <div class="p-4">
                 <h3>{{business.business_name}}</h3>
-                <p>{{business.business_email}}</p>
+                <p>Hood: {{neighbourhood.neighbourhood_name}}</p>
+                <p>Location: {{neighbourhood.location}}</p>
+                <p>Email: {{business.business_email}}</p>
+                <p>Contact: {{business.contact}}</p>
                 </div>
               </div>
         </div>

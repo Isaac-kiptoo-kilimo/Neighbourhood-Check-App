@@ -3,7 +3,7 @@
 
 <div class="container my-4">
   <div class="card m-4 p-2">
-    <h1>Search Results</h1>
+    <h1 class="ms-5">Search Results</h1>
     <div class="row mt-3">
       {% for business in object_list %}
       <div class="col-md-4  p-3 mb-5 bg-body rounded">
@@ -19,6 +19,10 @@
           </div>
           <hr>
          </div>
+         {% empty %}
+        <div>
+            <h2 class="text-center text-danger">Ooops ! There Is No Business Found.. </h2>
+        </div>
       </div>
       {% endfor %}
   </div>
