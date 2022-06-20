@@ -1,8 +1,19 @@
-/* .login{
-    background: rgb(234, 232, 232);
+body{
+    background-color: #edf1f5;
+}
+.login{
+    /* background: url(/static/images/photo7.jpg); */
+    background: url(/static/images/photo3.jpg);
+    /* background: url(/static/images/photo2.jpg); */
+    /* background: url(/static/images/background.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     
-} */
+}
+
+.card-custom{
+    background-color: #A9BACA;
+    color: white;
+}
