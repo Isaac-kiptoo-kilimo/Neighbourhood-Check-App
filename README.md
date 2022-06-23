@@ -57,6 +57,14 @@ This is a web application written in Django. This is a Neigbourhood Check app ap
 |----------------------------------------------|:-----------------------------------:|-----------------------------:|       
 | Click on Admin on navigation bar | Username, Password| User is redirected to the admin page where they can manage the database  |  
 
+
+## Admin Dashboard Credentials
+ ## USERNAME
+ admin
+ ## PASSWORD
+ isaac@1234
+
+
 7. Create hood/neighbourhood
 
 |Behaviour 	           |    Input 	                 |       Output          |
@@ -120,6 +128,8 @@ Email Address-[Isaac kiptoo kilimo] (isaac.kiptoo.kilimo@student.moringaschool.c
 Copyright © 2022
 
 # project layout
+### Admin Dashboard
+![Neighbourhood](/static/images/neighborizo.herokuapp.com_admin_.png)
 
 ### Homepage
 ![Neighbourhood](/static/images/landing.png)

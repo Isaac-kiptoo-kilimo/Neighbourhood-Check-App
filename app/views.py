@@ -202,3 +202,4 @@ class SearchResultsView(ListView):
             Q(business_name__icontains=query)
         )
         return object_list
+
