@@ -21,6 +21,9 @@
           <button class="btn btn-outline-primary" type="search">Search</button>
         </form>
         <ul class="navbar-nav  mb-2 mb-lg-0 me-5">
+          <li class="nav-item">
+            <a class="nav-link active btn btn-sucess" aria-current="page" href="/admin">Admin </a>
+          </li>
           <li class="nav-item me-4">
             <a class="nav-link " href="{% url 'profile' %}" tabindex="-1" aria-disabled="true">
               {% if user.profile.proc_img %}
