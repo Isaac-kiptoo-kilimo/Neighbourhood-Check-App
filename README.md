@@ -129,6 +129,13 @@ Copyright © 2022
 
 # project layout
 ### Admin Dashboard
+
+## Admin Dashboard Credentials
+ ## USERNAME
+ admin
+ ## PASSWORD
+ isaac@1234
+
 ![Neighbourhood](/static/images/neighborizo.herokuapp.com_admin_.png)
 
 ### Homepage
